@@ -2,7 +2,7 @@ _trigger = (_this select 0);
 
 _timer = 0;
 
-while {0 == 0} do
+while {true} do
 	{
 		_triggerlist = (list _trigger);
 		_blu = blufor countSide list _trigger;
@@ -10,7 +10,7 @@ while {0 == 0} do
 
 		if (_blu > _red) then
 		{
-			if (_timer < 20) then 
+			if (_timer < 43) then 
 			{
 				_timer = (_timer + 1);
 			} else
@@ -33,9 +33,8 @@ while {0 == 0} do
 			_timer = _timer;
 		};
 		hint ("Blufor: " + str(_blu) + " Opfor: " + str(_red) + " Timer: " + str(_timer));
-		if (player inArea _trigger) then 
-		{
-			cutRsc [str(_trigger),"PLAIN"];
-		};
+
+		missionNamespace setVariable ["capTimer",_timer];
+
 		sleep 1;
 	};

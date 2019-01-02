@@ -60,50 +60,71 @@ class MyFirstDialog			//Dialog class name, gets called by: handle = CreateDialog
 	};	//end: controls class
 };	//end: MyFirstDialog class
 
-class captureText
+class captureBar
 {
 	idd = 6001;
-	duration = 1.5;
-	fadein = 0;
-	fadeout = 0;
+	duration = 1e+011;
 	movingenable = false;
 	enableSimulation = false;
-	class controls 
+	onLoad = uiNamespace setVariable ["captureBar", _this select 0];
+	onUnLoad = uiNamespace setVariable ["captureBar", nil];
+	class controls
 	{
-		class Text1 : RscText
+		class greyBar : RscText
 		{
 			idc = 1001;
-			style = 2096;
-			x = 0.25;
-			y = safeZoneY + 0.05;
-			h = 0.5;
-			w = 0.5;
-			text = "folder\camprogaintest.paa";
-			colorText[] = { 1,1,1,0.8 };
+			x = (safeZoneX + (safeZoneWAbs / 2) - 0.15);
+			y = safeZoneY + 0.15;
+			h = 0.3;
+			w = 0.3;
+			style = ST_PICTURE;
+			colorText[] = { 1,1,1,0.6 };
+			text = "images\zoneCapture\greyBar.paa";
+		};
+		class bluforBar : greyBar
+		{
+			idc = 1002;
+			w = 0;
+			text = "images\zoneCapture\bluforBar.paa";
+		};
+		class opforBar : greyBar
+		{
+			idc = 1003;
+			w = 0;
+			text = "images\zoneCapture\opforBar.paa";
+		};
+		class greyBarOutline : greyBar
+		{
+			idc = 1004;
+			style = ST_WITH_RECT;
+			h = 0.023469;
+			text = "";
+			colorText[] = { 0,0,0,1 };
 		};
 	};
 };
 
-class captureBar
+class objectiveName
 {
 	idd = 6002;
 	duration = 1e+011;
-	movingenable = false;
+	movingEnable = false;
 	enableSimulation = false;
-	onLoad = "uiNamespace setVariable ['captureBar', _this select 0];";
-	onUnLoad = "uiNamespace setVariable ['captureBar', nil];";
 	class controls
 	{
-		class Text1 : RscText
+		class objectiveText : RscText
 		{
-			idc = 1002;
-			style = 48;
-			x = 0;
-			y = 0;
-			h = 0.5;
-			w = 0.5;
-			text = "folder\testimage.paa";
-			colorText[] = { 1,1,1,0.8 };
+			idc = 1005;
+			type = CT_STRUCTURED_TEXT;
+			style = ST_CENTER;
+			size = 0.06;
+			x = safeZoneX;
+			y = safeZoneY + 0.07;
+			w = safeZoneWAbs;
+			h = 1;
+			text = <t shadow='1' shadowColor='#CC000000' align='center'>Camp Rogain</t>;
+			colorText[] = { 1,1,1,1 };
+			colorBackground[] = { 0,0,0,0 };
 		};
 	};
 };
