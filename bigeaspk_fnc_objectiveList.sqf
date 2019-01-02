@@ -10,3 +10,5 @@ if ((_string select 0) == "objective") then {
 } forEach _allTriggers;
 
 hint (_objectiveTriggers joinString " ");
+
+_objectiveTriggers
