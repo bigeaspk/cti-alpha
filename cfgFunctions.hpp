@@ -5,5 +5,6 @@ class BSPK
 	{
 		file = "functions";
 		class createSec {};
+		class secActiveCheck {};
 	};
 };
