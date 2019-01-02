@@ -29,7 +29,7 @@ _markerType = (str(_string joinString "_") + "_type");
 _markerZone setMarkerShape "ELLIPSE";
 _markerZone setMarkerColor "colorOPFOR";
 _markerZone setMarkerBrush "FDiagonal";
-_markerZone setMarkerSize [_objArea select 0, _objArea select 1];						//create zone marker
+_markerZone setMarkerSize [_objArea select 0, _objArea select 1];										//create zone marker
 
 switch (_type) do {
 case "t": 
@@ -60,7 +60,7 @@ case "r":
 	{
 	_markerType setMarkerType "loc_Transmitter";
 	_markerType setMarkerColor "colorOpfor";
-	};																				//create type marker based on type
+	};																									//create type marker based on type
 default {"b_unknown"};
 };
 
