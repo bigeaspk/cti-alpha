@@ -21,14 +21,15 @@ _string deleteRange [0,2];
 _name = (_string joinString " ");
 _objArea = triggerArea _x;
 
-createMarker [(str(_string joinString "_") + "_zone"),(getPosATL _x)];									//define zone marker
-createMarker [(str(_string joinString "_") + "_type"),(getPosATL _x)];									//define type marker
-_markerZone = (str(_string joinString "_") + "_zone");
-_markerType = (str(_string joinString "_") + "_type");
+createMarker [(str(_x) + "_zone"),(getPosATL _x)];									//define zone marker
+createMarker [(str(_x) + "_type"),(getPosATL _x)];									//define type marker
+_markerZone = (str(_x) + "_zone");
+_markerType = (str(_x) + "_type");
 
 _markerZone setMarkerShape "ELLIPSE";
 _markerZone setMarkerColor "colorOPFOR";
-_markerZone setMarkerBrush "FDiagonal";
+_markerZone setMarkerBrush "Solid";
+_markerZone setMarkerAlpha 0;
 _markerZone setMarkerSize [_objArea select 0, _objArea select 1];										//create zone marker
 
 switch (_type) do {
